@@ -35,7 +35,7 @@ namespace NHibernateSample.Test
                     FirstName = "Marcos",
                     LastName = "yacob",
                     BirthDate = new DateTime(1983, 5, 2),
-                    Address = new Address {State = "Entre Ríos", City = "Paraná", Name = "Blass Parera", Number = 748}
+                    Address = new List<Address>() { new Address { State = "Entre Ríos", City = "Paraná", Name = "Blass Parera", Number = 748 } }
                 };
 
             _personRepo.Save(person);
@@ -50,7 +50,7 @@ namespace NHibernateSample.Test
                 FirstName = "Marcos",
                 LastName = "yacob",
                 BirthDate = new DateTime(1983, 5, 2),
-                Address = new Address { State = "Entre Ríos", City = "Paraná", Name = "Blass Parera", Number = 748 }
+                Address = new List<Address>() { new Address { State = "Entre Ríos", City = "Paraná", Name = "Blass Parera", Number = 748 } }
             }; 
             _personRepo.Save(person);
             Assert.AreEqual(1, _personRepo.RowCount());
@@ -67,7 +67,7 @@ namespace NHibernateSample.Test
                 FirstName = "Marcos",
                 LastName = "yacob",
                 BirthDate = new DateTime(1983, 5, 2),
-                Address = new Address { State = "Entre Ríos", City = "Paraná", Name = "Blass Parera", Number = 748 }
+                Address = new List<Address>() { new Address { State = "Entre Ríos", City = "Paraná", Name = "Blass Parera", Number = 748 } }
             }; 
             _personRepo.Save(person);
             Assert.AreEqual(1, _personRepo.RowCount());

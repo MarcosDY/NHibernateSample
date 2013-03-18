@@ -23,12 +23,14 @@ namespace NHibernateSample.Dao
             Property(x => x.FirstName);
             Property(x => x.LastName);
             Property(x => x.BirthDate, map => map.Type(NHibernateUtil.Date));
-            OneToOne(x => x.Address,
-                     map =>
-                     {
-                         map.PropertyReference(typeof(Address).GetProperty("Person"));
-                         map.Cascade(Cascade.All);
-                     });
+            
+            Bag(x => x.Address, m =>
+                {
+                    m.Inverse(true);
+                    m.Key(k => k.Column("PersonId"));
+                    m.Cascade(Cascade.All);
+                }, rel => rel.OneToMany());
+
         }
     }
 }

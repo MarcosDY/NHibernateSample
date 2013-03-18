@@ -22,6 +22,8 @@ namespace NHibernateSample.Dao
             Property(x=> x.Number);
             Property(x => x.State);
             Property(x=> x.City);
+
+            ManyToOne(x => x.Person);
         }
     }
 }

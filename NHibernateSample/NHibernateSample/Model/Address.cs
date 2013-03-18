@@ -12,5 +12,6 @@ namespace NHibernateSample.Model
         public virtual int Number { get; set; }
         public virtual String City { get; set; }
         public virtual String State { get; set; }
+        public virtual Person Person { get; set; }
     }
 }
