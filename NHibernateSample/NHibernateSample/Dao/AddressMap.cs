@@ -23,7 +23,7 @@ namespace NHibernateSample.Dao
             Property(x => x.State);
             Property(x=> x.City);
 
-            ManyToOne(x => x.Person);
+            ManyToOne(x => x.Person, m => m.Column("PersonId"));
         }
     }
 }
