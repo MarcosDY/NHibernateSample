@@ -14,14 +14,13 @@ namespace NHibernateSample.Dao
     {
         public PersonMap()
         {
-
             Id(x => x.Id, map =>
             {
                map.Generator(Generators.GuidComb);
                map.Column("PersonId");
             });
-            Property(x => x.FirstName);
-            Property(x => x.LastName);
+            Property(x => x.FirstName, m => m.NotNullable(true));
+            Property(x => x.LastName, m => m.NotNullable(true));
             Property(x => x.BirthDate, map => map.Type(NHibernateUtil.Date));
             
             Bag(x => x.Address, m =>
@@ -29,6 +28,7 @@ namespace NHibernateSample.Dao
                     m.Inverse(true);
                     m.Key(k => k.Column("PersonId"));
                     m.Cascade(Cascade.All);
+                    m.Lazy(CollectionLazy.NoLazy);
                 }, rel => rel.OneToMany());
 
         }
